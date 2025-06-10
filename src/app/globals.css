@@ -2,93 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-background-light: #ffffff;
-  --color-background-dark: #000000;
-  --color-text-light: #000000;
-  --color-text-dark: #ffffff;
-  --color-primary: #3b82f6; /* Tailwind blue-500 */
-  --color-muted: #6b7280; /* Tailwind gray-500 */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 359 65% 55%; /* Updated from 357 65% 51% */
+    --accent-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+  }
+
+  .dark {
+    --background: 0 26% 11%; /* Updated from 14 25% 11% */
+    --foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 14 25% 11%;
+    --secondary: 0 19% 21%; /* Updated from 14 19% 21% */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 14 19% 21%;
+    --muted-foreground: 217 10% 64.9%;
+    --accent: 359 65% 55%; /* Updated from 357 65% 51% */
+    --accent-foreground: 210 40% 98%;
+    --border: 14 19% 21%;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--color-background-light);
-  color: var(--color-text-light);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dark {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-dark);
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  cursor: pointer;
-}
-
-input,
-select {
-  border: 1px solid var(--color-muted);
-  border-radius: 0.375rem;
-  padding: 0.5rem;
-  transition: border-color 0.3s ease;
-}
-
-input:focus,
-select:focus {
-  border-color: var(--color-primary);
-  outline: none;
-}
-
-.card {
-  background-color: var(--color-background-light);
-  border: 1px solid var(--color-muted);
-  border-radius: 0.375rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.text-muted {
-  color: var(--color-muted);
-}
-
-.text-xs {
-  font-size: 0.75rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  transition: background-color 0.2s ease, color 0.2s ease;
 }

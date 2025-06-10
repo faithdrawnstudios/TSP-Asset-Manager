@@ -1,39 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useTheme as useNextTheme } from 'next-themes';
 
 export const useTheme = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    
-    setDarkMode(shouldBeDark);
-    
-    if (shouldBeDark) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
+  const { theme, setTheme, resolvedTheme } = useNextTheme();
 
   const toggleTheme = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    
-    if (newDarkMode) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  return { darkMode, toggleTheme };
+  return {
+    theme,
+    setTheme,
+    resolvedTheme,
+    toggleTheme,
+    isDark: resolvedTheme === 'dark',
+  };
 };

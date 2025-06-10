@@ -1,19 +1,27 @@
-import React from 'react';
-import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Providers } from './providers';
+import '../styles/globals.css';
 
-export const metadata = {
-  title: 'Digital Asset Manager',
-  description: 'A Digital Asset Manager that integrates with Dropbox for asset storage.',
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'TSP Asset Manager',
+  description: 'Professional asset management system for digital media',
 };
 
-const RootLayout = ({ children }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <body>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

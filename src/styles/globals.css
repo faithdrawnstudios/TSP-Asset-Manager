@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 359 65% 55%; /* Hex: #D74043 */
+    --accent-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+  }
+
+  .dark {
+    --background: 0 26% 11%; /* Hex: #241515 */
+    --foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 14 25% 11%; /* Note: Consider if this should also change based on new background */
+    --secondary: 0 19% 21%; /* Hex: #3F2B2B */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 14 19% 21%;
+    --muted-foreground: 217 10% 64.9%;
+    --accent: 359 65% 55%; /* Hex: #D74043 */
+    --accent-foreground: 210 40% 98%;
+    --border: 14 19% 21%;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+}
