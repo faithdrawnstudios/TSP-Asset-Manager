@@ -21,21 +21,31 @@ export function AssetCard({ asset, viewMode, onEdit }: AssetCardProps) {
     }
   };
 
-  const getConfidentialityColor = (level: string) => {
-    switch (level) {
-      case 'public': return 'bg-green-500';
-      case 'internal': return 'bg-yellow-500';
-      case 'confidential': return 'bg-red-500';
-      default: return 'bg-gray-500';
+  // Use asset.approvalStatus as a string for color, fallback to 'pending'
+  const getStatusColor = (status: string) => {
+    switch (status || 'pending') {
+      case 'approved':
+        return 'text-[#D74043] dark:text-[#D74043]';
+      case 'pending':
+        return 'text-yellow-500 dark:text-yellow-400';
+      case 'rejected':
+        return 'text-red-500 dark:text-red-400';
+      default:
+        return 'text-gray-500 dark:text-gray-400';
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'approved': return 'text-green-500 dark:text-green-400';
-      case 'pending': return 'text-yellow-500 dark:text-yellow-400';
-      case 'rejected': return 'text-red-500 dark:text-red-400';
-      default: return 'text-gray-500 dark:text-gray-400';
+  // Use asset.confidentiality as a string for color, fallback to 'internal'
+  const getConfidentialityColor = (level: string) => {
+    switch (level || 'internal') {
+      case 'public':
+        return 'bg-green-500';
+      case 'internal':
+        return 'bg-[#3F2B2B]';
+      case 'confidential':
+        return 'bg-[#D74043]';
+      default:
+        return 'bg-gray-500';
     }
   };
 

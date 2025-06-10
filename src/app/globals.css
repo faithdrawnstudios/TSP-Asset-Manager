@@ -18,8 +18,8 @@
   }
 
   .dark {
-    --background: 0 26% 11%; /* Updated from 14 25% 11% */
-    --foreground: 210 40% 98%;
+    --background: 0 26.3% 11.2%; /* #241515 */
+    --foreground: 0 0% 100%; /* white text in dark mode */
     --primary: 210 40% 98%;
     --primary-foreground: 14 25% 11%;
     --secondary: 0 19% 21%; /* Updated from 14 19% 21% */

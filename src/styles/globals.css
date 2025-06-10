@@ -12,21 +12,21 @@
     --secondary-foreground: 222.2 84% 4.9%;
     --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 359 65% 55%; /* Hex: #D74043 */
+    --accent: 358.8 65.1% 54.7%; /* Hex: #D74043 */
     --accent-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
   }
 
   .dark {
-    --background: 0 26% 11%; /* Hex: #241515 */
+    --background: 0 26.3% 11.2%; /* Hex: #241515 */
     --foreground: 210 40% 98%;
     --primary: 210 40% 98%;
     --primary-foreground: 14 25% 11%; /* Note: Consider if this should also change based on new background */
-    --secondary: 0 19% 21%; /* Hex: #3F2B2B */
+    --secondary: 0 18.9% 20.8%; /* Hex: #3F2B2B */
     --secondary-foreground: 210 40% 98%;
     --muted: 14 19% 21%;
     --muted-foreground: 217 10% 64.9%;
-    --accent: 359 65% 55%; /* Hex: #D74043 */
+    --accent: 358.8 65.1% 54.7%; /* Hex: #D74043 */
     --accent-foreground: 210 40% 98%;
     --border: 14 19% 21%;
   }
@@ -39,4 +39,5 @@
 body {
   color: hsl(var(--foreground));
   background: hsl(var(--background));
-}
+  transition: background 0.2s, color 0.2s;
+}body {  background: #241515;}.bg-background {  background: #241515 !important;}.bg-secondary,.hover\:bg-secondary:hover {  background: #3F2B2B !important;}.text-primary,.text-accent,.text-accent-foreground {  color: #D74043 !important;}.bg-accent {  background: #D74043 !important;}.border-border {  border-color: #3F2B2B !important;}
